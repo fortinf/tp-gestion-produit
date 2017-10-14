@@ -1,4 +1,4 @@
-package org.fortinf.gestionproduit.repositories;
+package org.fortinf.gestionproduit.repository;
 
 import org.fortinf.gestionproduit.domain.Produit;
 import org.springframework.data.jpa.repository.JpaRepository;

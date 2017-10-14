@@ -1,7 +1,7 @@
 package org.fortinf.gestionproduit.service;
 
 import org.fortinf.gestionproduit.domain.Produit;
-import org.fortinf.gestionproduit.repositories.ProduitRepository;
+import org.fortinf.gestionproduit.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
