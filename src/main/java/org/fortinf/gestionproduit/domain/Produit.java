@@ -14,7 +14,7 @@ public class Produit implements Serializable {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "LIBELLE", nullable = false, length = 50)
+    @Column(name = "LIBELLE", nullable = false, length = 100)
     private String libelle;
 
     @Column(name = "DESCRIPTION")
@@ -66,6 +66,6 @@ public class Produit implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("|%20d|%20s|%20.2f|", id, libelle, prix);
+        return String.format("|%20d|%100s|%20.2f|", id, libelle, prix);
     }
 }
