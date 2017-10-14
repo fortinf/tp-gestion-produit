@@ -3,6 +3,7 @@ package org.fortinf.gestionproduit.controller;
 import org.fortinf.gestionproduit.domain.Produit;
 import org.fortinf.gestionproduit.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,6 +38,14 @@ public class ProduitController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteProduit(@PathVariable Long id) {
         produitService.deleteProduit(id);
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public Page<Produit> searchProduits(
+            @RequestParam(name = "exp", defaultValue = "") String exp,
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "5") int size) {
+        return produitService.search(exp, page, size);
     }
 
 }
