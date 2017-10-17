@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="ProduitApp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Produits</title>
+</head>
+<body ng-controller="ProduitCtrl">
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Libellé</th>
+        <th>Description</th>
+        <th>Prix</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in produits.content">
+        <td>{{ p.id }}</td>
+        <td>{{ p.libelle }}</td>
+        <td>{{ p.description }}</td>
+        <td>{{ p.prix }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-resource/angular-resource.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
