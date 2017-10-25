@@ -2,15 +2,15 @@
  * Module "ProduitApp" de l'application AngularJs
  * @type {angular.Module}
  */
-var module = angular.module('ProduitApp', ['ngResource', 'ui.router']);
+var module = angular.module('ProduitApp', ['ngResource', 'ui.router', 'ngMessages']);
 
-module.config(['$stateProvider', router]);
+module.config(['$stateProvider', '$locationProvider', router]);
 
 /**
  * Configuration des routes de l'application "ProduitApp"
  * @param $stateProvider
  */
-function router($stateProvider) {
+function router($stateProvider, $locationProvider) {
     var homeProduitState = {
         name : 'homeProduitState',
         url : '/produit/home',
@@ -38,6 +38,8 @@ function router($stateProvider) {
     $stateProvider.state(homeProduitState);
     $stateProvider.state(searchProduitState);
     $stateProvider.state(newProduitState);
+
+    $locationProvider.html5Mode(true);
 }
 
 

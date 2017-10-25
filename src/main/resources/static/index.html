@@ -5,13 +5,31 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>Produits</title>
+    <base href="/">
 </head>
 <body>
-    <div class="container spacer" ui-view></div>
+<div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="homeProduitState">Gestion Produit</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a ui-sref="homeProduitState"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li><a ui-sref="searchProduitState">Rechercher Produits</a></li>
+                <li><a ui-sref="newProduitState">Nouveau Produit</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container spacer">
+        <div class="row justify-content-start" ui-view></div>
+    </div>
+</div>
 </body>
 <script src="node_modules/angular/angular.min.js"></script>
 <script src="node_modules/angular-resource/angular-resource.min.js"></script>
 <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="node_modules/angular-messages/angular-messages.min.js"></script>
 <script src="app/app.js"></script>
 <script src="app/services/produitService.js"></script>
 <script src="app/controllers/produitController.js"></script>
