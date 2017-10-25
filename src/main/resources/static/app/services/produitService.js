@@ -20,7 +20,8 @@ module.factory('produitService', ['$resource', function ($resource) {
                             method: 'GET',
                             params: {'exp': '@exp', page: '@page', size: '@size'},
                             isArray: false
-                        }
+                        },
+                        'update': {method: 'PUT'}
                     }
                 );
             }

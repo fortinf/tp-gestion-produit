@@ -3,10 +3,13 @@
  */
 module.controller('ProduitController', ['$scope', 'produitService', function($scope, produitService) {
 
+    var ProduitResource = produitService.getResource();
+
     $scope.exp = '';
     $scope.currentPage = 0;
     $scope.tableSize = 5;
     $scope.tabPagination = [];
+
 
     /**
      * Lance une nouvelle recherche (avec mot clé ou pas)
@@ -29,12 +32,17 @@ module.controller('ProduitController', ['$scope', 'produitService', function($sc
      * Communique avec le server pour créer un nouveau produit
      */
     $scope.newProduit = function() {
-
+        if ($scope.newProduitForm.$valid) {
+            var produit = new ProduitResource();
+            produit.libelle = $scope.produit.libelle;
+            produit.description = $scope.produit.description;
+            produit.prix = $scope.produit.prix;
+            produit.$save();
+        }
     }
 
     function rechercherProduit(){
-        var produitResource = produitService.getResource();
-        produitResource.search({exp: $scope.exp, page: $scope.currentPage, size: $scope.tableSize}, function(produits) {
+        ProduitResource.search({exp: $scope.exp, page: $scope.currentPage, size: $scope.tableSize}, function(produits) {
             $scope.produits = produits;
             $scope.tabPagination = new Array(produits.totalPages);
         });
