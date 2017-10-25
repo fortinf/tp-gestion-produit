@@ -1,7 +1,7 @@
 /**
  * Controller "ProduitController"
  */
-module.controller('ProduitController', ["$scope", "produitService", function($scope, produitService) {
+module.controller('ProduitController', ['$scope', 'produitService', function($scope, produitService) {
 
     $scope.exp = '';
     $scope.currentPage = 0;

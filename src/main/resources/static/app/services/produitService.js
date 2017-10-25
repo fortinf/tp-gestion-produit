@@ -2,7 +2,7 @@
  *  Service "produitService"
  *  Se charge de fournir des méthodes pour traiter les produits
  */
-module.factory('produitService', ["$resource", function ($resource) {
+module.factory('produitService', ['$resource', function ($resource) {
     var produitResource = null;
 
     return {
