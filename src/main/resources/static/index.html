@@ -6,39 +6,9 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>Produits</title>
 </head>
-<body ng-controller="ProduitController">
-<div class="container spacer">
-    <input type="text" ng-model="exp">
-    <button ng-click="nouvelleRecherche()">Rechercher</button>
-</div>
-<div class="container">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Libellé</th>
-            <th>Description</th>
-            <th>Prix</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="produit in produits.content">
-            <td ng-bind="produit.id"></td>
-            <td ng-bind="produit.libelle"></td>
-            <td ng-bind="produit.description"></td>
-            <td ng-bind="produit.prix"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="container">
-    <ul class="nav nav-pills">
-        <li ng-class="{active:$index==currentPage}" ng-repeat="page in tabPagination track by $index"
-            ng-click="goToPage($index)" class="cursorPointer">
-            <a ng-bind="$index + 1"></a>
-        </li>
-    </ul>
-</div>
+<body>
+    <div class="container spacer" ui-view></div>
+</body>
 <script src="node_modules/angular/angular.min.js"></script>
 <script src="node_modules/angular-resource/angular-resource.min.js"></script>
 <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
