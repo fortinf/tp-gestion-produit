@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="prix" class="control-label">Prix : </label>
-                <input id="prix" name="prix" ng-model="produit.prix" class="form-control" ng-pattern="/[0-9]\d*(,\d{2})?$/" required >
+                <input id="prix" name="prix" ng-model="produit.prix" class="form-control" ng-pattern="/^[0-9]\d*(\.\d{2})?$/" required >
                 <div ng-if="newProduitForm.prix.$dirty" ng-messages="newProduitForm.prix.$error">
                     <div ng-message="required">Le prix est obligatoire.</div>
                     <div ng-message="pattern">Le prix est invalide.</div>
