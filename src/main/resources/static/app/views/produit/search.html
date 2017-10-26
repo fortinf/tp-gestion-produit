@@ -1,11 +1,17 @@
 <div class="panel panel-default">
     <div class="panel-heading">Recherche de produits</div>
     <div class="panel-body">
-        <div class="form-group">
-            <input ng-model="exp" class="form-control">
-            <button ng-click="nouvelleRecherche()" class="btn btn-primary">Rechercher</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <input ng-model="exp" class="form-control">
+                </div>
+                <div class="col-md-2">
+                    <button ng-click="nouvelleRecherche()" class="btn btn-primary">Rechercher</button>
+                </div>
+            </div>
         </div>
-        <div>
+        <div class="spacer">
             <table class="table table-striped">
                 <thead>
                 <tr>

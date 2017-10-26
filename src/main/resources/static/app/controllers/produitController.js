@@ -1,7 +1,7 @@
 /**
  * Controller "ProduitController"
  */
-module.controller('ProduitController', ['$scope', 'produitService', function($scope, produitService) {
+module.controller('ProduitController', ['$rootScope', '$scope', '$location', 'produitService', function($rootScope, $scope, $location, produitService) {
 
     var ProduitResource = produitService.getResource();
 
@@ -9,6 +9,8 @@ module.controller('ProduitController', ['$scope', 'produitService', function($sc
     $scope.currentPage = 0;
     $scope.tableSize = 5;
     $scope.tabPagination = [];
+
+    $rootScope.path = $location.path();
 
 
     /**
@@ -41,11 +43,11 @@ module.controller('ProduitController', ['$scope', 'produitService', function($sc
         }
     }
 
-    function rechercherProduit(){
-        ProduitResource.search({exp: $scope.exp, page: $scope.currentPage, size: $scope.tableSize}, function(produits) {
-            $scope.produits = produits;
-            $scope.tabPagination = new Array(produits.totalPages);
-        });
-    }
-
 }]);
+
+function rechercherProduit(){
+    ProduitResource.search({exp: $scope.exp, page: $scope.currentPage, size: $scope.tableSize}, function(produits) {
+        $scope.produits = produits;
+        $scope.tabPagination = new Array(produits.totalPages);
+    });
+}
