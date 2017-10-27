@@ -23,21 +23,21 @@
             name: 'homeProduitState',
             url: '/produit/home',
             templateUrl: 'app/views/produit/home.html',
-            controller: 'ProduitController'
+            controller: 'HomeController'
         };
 
         var searchProduitState = {
             name: 'searchProduitState',
             url: '/produit/search',
             templateUrl: 'app/views/produit/search.html',
-            controller: 'ProduitController'
+            controller: 'SearchProduitController'
         };
 
         var newProduitState = {
             name: 'newProduitState',
             url: '/produit/new',
             templateUrl: 'app/views/produit/new.html',
-            controller: 'ProduitController'
+            controller: 'NewProduitController'
         };
 
         $stateProvider.state(homeProduitState);
