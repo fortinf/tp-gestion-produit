@@ -5,3 +5,7 @@
 .cursorPointer {
     cursor: pointer;
 }
+
+.validationForm input.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+}

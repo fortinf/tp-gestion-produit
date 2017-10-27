@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Produits</title>
     <base href="/">
 </head>
 <body>
 <div>
     <div ng-controller="MainController">
-        Location.path : {{ path }}
         <nav id="menu" class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -31,12 +30,14 @@
         <div class="row justify-content-start" ui-view></div>
     </div>
 </div>
-</body
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/angular/angular.min.js"></script>
-<script src="node_modules/angular-resource/angular-resource.min.js"></script>
-<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.6/angular-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.3/angular-ui-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.6/angular-messages.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="app/app.js"></script>
 <script src="app/services/produitService.js"></script>
 <script src="app/controllers/produitController.js"></script>

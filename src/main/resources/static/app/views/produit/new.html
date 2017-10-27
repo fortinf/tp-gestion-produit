@@ -1,32 +1,47 @@
+<div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">
+    {{alert.msg}}
+</div>
 <div class="panel panel-default">
     <div class="panel-heading">Nouveau produits</div>
     <div class="panel-body">
-        <form name="newProduitForm" ng-submit="newProduit()">
+        <form name="newProduitForm" ng-submit="newProduit()" class="form-horizontal validationForm" novalidate>
             <div class="form-group">
-                <label for="libelle" class="control-label">Libellé : </label>
-                <input id="libelle" name="libelle" ng-model="produit.libelle" class="form-control" required ng-maxlength="100">
-                <div ng-if="newProduitForm.libelle.$dirty" ng-messages="newProduitForm.libelle.$error">
-                    <div ng-message="required">Le libellé est obligatoire.</div>
-                    <div ng-message="maxlength">Le libellé ne doit pas dépasser 100 caractères.</div>
+                <label for="libelle" class="control-label col-md-3">Libellé : </label>
+                <div class="col-md-6">
+                    <input id="libelle" name="libelle" class="form-control" required ng-maxlength="100"
+                           ng-model="produitToCreate.libelle"/>
+                </div>
+                <div class="col-md-3" ng-show="newProduitForm.libelle.$dirty"
+                     ng-messages="newProduitForm.libelle.$error">
+                    <div ng-messages-include="app/views/core/messages.html"></div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="description" class="control-label">Description : </label>
-                <input id="description" name="description" ng-model="produit.description" class="form-control" ng-maxlength="255">
-                <div ng-if="newProduitForm.description.$dirty" ng-messages="newProduitForm.description.$error">
-                    <div ng-message="maxlength">La description ne doit pas dépasser 255 caractères.</div>
+                <label for="description" class="control-label col-md-3">Description : </label>
+                <div class="col-md-6">
+                    <input id="description" name="description" class="form-control" ng-maxlength="255"
+                           ng-model="produitToCreate.description"/>
+                </div>
+                <div class="col-md-3" ng-show="newProduitForm.description.$dirty"
+                     ng-messages="newProduitForm.description.$error">
+                    <div ng-messages-include="app/views/core/messages.html"></div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="prix" class="control-label">Prix : </label>
-                <input id="prix" name="prix" ng-model="produit.prix" class="form-control" ng-pattern="/^[0-9]\d*(\.\d{2})?$/" required >
-                <div ng-if="newProduitForm.prix.$dirty" ng-messages="newProduitForm.prix.$error">
-                    <div ng-message="required">Le prix est obligatoire.</div>
-                    <div ng-message="pattern">Le prix est invalide.</div>
+                <label for="prix" class="control-label col-md-3">Prix : </label>
+                <div class="col-md-6">
+                    <input id="prix" name="prix" class="form-control" required ng-pattern="/^[0-9]\d*(\.\d{2})?$/"
+                           ng-model="produitToCreate.prix"/>
+                </div>
+                <div class="col-md-3" ng-show="newProduitForm.prix.$dirty"
+                     ng-messages="newProduitForm.prix.$error">
+                    <div ng-messages-include="app/views/core/messages.html"></div>
                 </div>
             </div>
-            <div>
-                <input type="submit" value="Créer" class="btn btn-primary" ng-disabled="newProduitForm.$invalid">
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <input type="submit" value="Créer" class="btn btn-primary" ng-disabled="newProduitForm.$invalid"/>
+                </div>
             </div>
         </form>
     </div>
