@@ -7,5 +7,9 @@
 }
 
 .validationForm input.ng-invalid.ng-dirty {
-    border-color: #FA787E;
+    border-color : #FA787E;
+}
+
+.validationForm input.ng-invalid {
+    transition:0.5s linear all;
 }

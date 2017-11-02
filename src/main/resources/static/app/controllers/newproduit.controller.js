@@ -6,12 +6,12 @@
      * Controller "NewProduitController"
      */
     angular.module('ProduitApp').controller('NewProduitController',
-        ['$rootScope', '$scope', '$location', '$state', 'produitService',
-            function ($rootScope, $scope, $location, $state, produitService) {
+        ['$rootScope', '$scope', '$location', '$state', 'produitService', 'ProduitResource',
+            function ($rootScope, $scope, $location, $state, produitService, ProduitResource) {
 
-                var ProduitResource = produitService.getResource();
-
+                $scope.modeForm = true;
                 $scope.produitToCreate = new ProduitResource();
+                $scope.createdProduit = new ProduitResource();
                 $scope.alerts = [];
                 $rootScope.path = $location.path();
 
@@ -20,13 +20,12 @@
                  */
                 $scope.newProduit = function () {
                     if ($scope.newProduitForm.$valid) {
-                        var promise = $scope.produitToCreate.$save();
-                        promise.then(function () {
+                        produitService.creerProduit($scope.produitToCreate).then(function (data) {
                             $scope.alerts = [
                                 {type: 'success', msg: 'Création du produit réalisée avec succès!'}
                             ];
-                            $scope.produitToCreate = new ProduitResource();
-                            //$state.reload();
+                            $scope.createdProduit = data;
+                            $scope.modeForm = false;
                         });
                     }
                 }

@@ -9,8 +9,6 @@
         ['$rootScope', '$scope', '$location', '$state', 'produitService',
             function ($rootScope, $scope, $location, $state, produitService) {
 
-                var ProduitResource = produitService.getResource();
-
                 $scope.exp = '';
                 $scope.currentPage = 0;
                 $scope.tableSize = 5;
@@ -22,7 +20,11 @@
                  */
                 $scope.nouvelleRecherche = function () {
                     $scope.currentPage = 0;
-                    rechercherProduit();
+                    produitService.rechercherProduit($scope.exp, $scope.currentPage, $scope.tableSize).then(function (data) {
+                        $scope.produits = data;
+                        $scope.tabPagination = new Array($scope.produits.totalPages);
+                    });
+
                 }
 
                 /**
@@ -31,19 +33,13 @@
                  */
                 $scope.goToPage = function (page) {
                     $scope.currentPage = page;
-                    rechercherProduit();
+                    produitService.rechercherProduit($scope.exp, $scope.currentPage, $scope.tableSize).then(function (data) {
+                        $scope.produits = data;
+                        $scope.tabPagination = new Array($scope.produits.totalPages);
+                    });
+
                 }
 
-                function rechercherProduit() {
-                    ProduitResource.search({
-                        exp: $scope.exp,
-                        page: $scope.currentPage,
-                        size: $scope.tableSize
-                    }, function (produits) {
-                        $scope.produits = produits;
-                        $scope.tabPagination = new Array(produits.totalPages);
-                    });
-                }
 
             }]);
 
