@@ -22,6 +22,8 @@
                             ui-sref="searchProduitState">Rechercher Produits</a></li>
                     <li id="menu-newproduit" ng-class="{active:path=='/produit/new'}"><a
                             ui-sref="newProduitState">Nouveau Produit</a></li>
+                    <li id="menu-updateproduit"><a
+                            ui-sref="updateProduitState({produitId: 1})">Modifier Produit</a></li>
                 </ul>
             </div>
         </nav>
@@ -44,5 +46,6 @@
 <script src="app/controllers/home.controller.js"></script>
 <script src="app/controllers/newproduit.controller.js"></script>
 <script src="app/controllers/searchproduit.controller.js"></script>
+<script src="app/controllers/updateproduit.controller.js"></script>
 </body>
 </html>

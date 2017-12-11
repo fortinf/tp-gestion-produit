@@ -19,7 +19,7 @@
                  * Si le formulaire est valide, communique avec le server pour créer un nouveau produit
                  */
                 $scope.newProduit = function () {
-                    if ($scope.newProduitForm.$valid) {
+                    if ($scope.updateProduitForm.$valid) {
                         produitService.creerProduit($scope.produitToCreate).then(function (data) {
                             $scope.alerts = [
                                 {type: 'success', msg: 'Création du produit réalisée avec succès!'}

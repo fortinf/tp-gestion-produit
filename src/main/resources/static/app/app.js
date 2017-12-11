@@ -9,7 +9,7 @@
 
     module.config(['$stateProvider', '$locationProvider', router]);
 
-    module.controller('MainController', ['$rootScope', '$location', function ($rootScope, $location) {
+    module.controller('MainController', ['$rootScope', '$scope', '$location', function ($rootScope, $scope, $location) {
         $rootScope.path = $location.path();
     }]);
 
@@ -40,9 +40,17 @@
             controller: 'NewProduitController'
         };
 
+        var updateProduitState = {
+            name: 'updateProduitState',
+            url: '/produit/update/{produitId:int}',
+            templateUrl: 'app/views/produit/update.html',
+            controller: 'UpdateProduitController'
+        };
+
         $stateProvider.state(homeProduitState);
         $stateProvider.state(searchProduitState);
         $stateProvider.state(newProduitState);
+        $stateProvider.state(updateProduitState);
 
         $locationProvider.html5Mode(true);
     }

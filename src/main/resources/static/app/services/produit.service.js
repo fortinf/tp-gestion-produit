@@ -44,7 +44,41 @@
             });
 
             return defer.promise;
-        }   
+        }
+
+        /**
+         * Modifie un produit.
+         * Retourne dans une promesse le produit modifié.
+         *
+         * @param ProduitResource
+         * @returns {Promise}
+         */
+        this.modifierProduit = function (ProduitResource) {
+            var defer = $q.defer();
+            var promise = ProduitResource.$update();
+
+            promise.then(function (data) {
+                defer.resolve(data);
+            });
+
+            return defer.promise;
+        }
+
+        /**
+         * Retourne dans une promesse un produit depuis son id.
+         *
+         * @param id
+         * @return {Promise}
+         */
+        this.getProduit = function (id) {
+            var defer = $q.defer();
+
+            ProduitResource.get({produitId : id}, function (data) {
+                defer.resolve(data);
+            });
+
+            return defer.promise;
+        }
 
     }]);
 
